@@ -1,9 +1,11 @@
 from discord_webhook import DiscordWebhook, DiscordEmbed
+import os
+from dotenv import load_dotenv, find_dotenv
 
 # create an embed message and send to your discord channel
-
-webhook = DiscordWebhook(url="https://discord.com/api/webhooks/961263992460935178/d3D88lbXZEt6WivuGwRAhH0n6KfIrYaUP4kHJ5TPTQfmFpTmPhf9dIFZEk4NWEMrKtd6"
-                         , avatar_url="")
+load_dotenv(find_dotenv())
+URL_WEBHOOK = os.getenv("URL_WEBHOOK")
+webhook = DiscordWebhook(url=URL_WEBHOOK, avatar_url="")
 
 embed = DiscordEmbed(title="Title of your embed message", color=242424)
 embed.set_author(name="author name", url="", icon_url="")
